@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="VB" Debug="true" Service="RsValidateOrder.ServValidateOrder" CodeBehind="ServValidateOrder.svc.vb" %>
