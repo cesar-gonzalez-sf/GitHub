@@ -1,0 +1,74 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="ImperialAuth" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://10.130.2.74/aprweb/AprRestService.svc/authenticate</Value>
+    </Setting>
+    <Setting Name="AccessControlMaxAge" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1728000</Value>
+    </Setting>
+    <Setting Name="OraclePayURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://docs.oracle.com/cd/E95861_01/Cloud.18B/ExtendingCC/html/s3005authorizethepayment01.html</Value>
+    </Setting>
+    <Setting Name="TraceDir" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\ImpRestTrace\ValidateOrderTrace</Value>
+    </Setting>
+    <Setting Name="AccessControlAllowOrigin" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">*</Value>
+    </Setting>
+    <Setting Name="ConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=apolo;Initial Catalog=SAV;Persist Security Info=True;User ID=SavSysUser;Password=SavSysUser;Application Name=ValidaOrden;</Value>
+    </Setting>
+    <Setting Name="ecuIpPort" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">127.0.0.1,10102</Value>
+    </Setting>
+    <Setting Name="ecuLayoutsURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">file:///./Layouts/*.asp</Value>
+    </Setting>
+    <Setting Name="appServerName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SERVPOR</Value>
+    </Setting>
+    <Setting Name="appTraceXML" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="appTraceDir" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.\Trace</Value>
+    </Setting>
+    <Setting Name="appPoliza" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">211107642</Value>
+    </Setting>
+    <Setting Name="appLoginEmp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">imperial 1</Value>
+    </Setting>
+    <Setting Name="appUsuario" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">wsprueba</Value>
+    </Setting>
+    <Setting Name="appPass" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">123456</Value>
+    </Setting>
+    <Setting Name="appCodSal" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">
+          50740
+        </Value>
+    </Setting>
+    <Setting Name="getPaymentInfo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">
+          https://api-sodimac-pgs.buffetcloud.io/pgs-dte-testing/api/imp/payments/getPaymentInfo
+
+        </Value>
+    </Setting>
+    <Setting Name="confirmPayment" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://api-sodimac-pgs.buffetcloud.io/pgs-dte-testing/api/imp/payments/confirmPayment</Value>
+    </Setting>
+    <Setting Name="Log" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="LogTrace" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.\Trace</Value>
+    </Setting>
+    <Setting Name="sqlConnection" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=APOLO;Initial Catalog=SAV;Persist Security Info=True;User ID=SavSysUser;Password=SavSysUser;Application </Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
