@@ -101,9 +101,12 @@
     <Content Include="ws-test-por.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Convenio\ConfirmPaymentInput.vb" />
+    <Compile Include="Convenio\ConfirmPaymentResponse.vb" />
     <Compile Include="Convenio\PaymentItems.vb" />
     <Compile Include="Convenio\PropertysPaymentInfoRequest.vb" />
     <Compile Include="Convenio\PropertysPaymentInfoResponse.vb" />
+    <Compile Include="Database\ImperialGetConfirmPaymentResult.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

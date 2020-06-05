@@ -26,4 +26,8 @@ Public Class ws_test_por
 
     End Function
 
+    Public Function ServicioPOR(ByVal ConfirmPOR As ImperialGetConfirmPaymentResult) As ConfirmPaymentResponse
+
+    End Function
+
 End Class
