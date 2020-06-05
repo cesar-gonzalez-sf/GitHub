@@ -22,11 +22,11 @@ Public Class ws_test_por
                 RequestFormat:=WebMessageFormat.Json,
                 ResponseFormat:=WebMessageFormat.Json,
                 BodyStyle:=WebMessageBodyStyle.WrappedRequest)>
-    Public Function ServicioPOR(ByVal RequestPOR As PropertysPaymentInfoRequest) As PropertysPaymentInfoResponse
+    Public Function ServicioPOR(ByVal mpGetInternalNumber As PropertysPaymentInfoRequest) As PropertysPaymentInfoResponse
 
     End Function
 
-    Public Function ServicioPOR(ByVal ConfirmPOR As ImperialGetConfirmPaymentResult) As ConfirmPaymentResponse
+    Public Function ServicioPOR(ByVal mpGetConfirmPayment As ImperialGetConfirmPaymentResult) As ConfirmPaymentResponse
 
     End Function
 

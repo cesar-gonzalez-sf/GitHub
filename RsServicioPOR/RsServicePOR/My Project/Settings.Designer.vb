@@ -56,9 +56,8 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Data Source=APOLO;Initial Catalog=SAV;Persist Security Info=True;User ID=SavSysUs"& _ 
-            "er;Password=SavSysUser;Application ")>  _
+            "er;Password=SavSysUser;Application "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10))>  _
         Public ReadOnly Property sqlConnection() As String
             Get
                 Return CType(Me("sqlConnection"),String)
@@ -67,8 +66,98 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("127.0.0.1,10102")>  _
+        Public ReadOnly Property ecuIpPort() As String
+            Get
+                Return CType(Me("ecuIpPort"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("file:///./Layouts/*.asp")>  _
+        Public ReadOnly Property ecuLayoutsURL() As String
+            Get
+                Return CType(Me("ecuLayoutsURL"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("SERVPOR")>  _
+        Public ReadOnly Property appServerName() As String
+            Get
+                Return CType(Me("appServerName"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public ReadOnly Property appTraceXML() As String
+            Get
+                Return CType(Me("appTraceXML"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute(".\Trace")>  _
+        Public ReadOnly Property appTraceDir() As String
+            Get
+                Return CType(Me("appTraceDir"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("211107642")>  _
+        Public ReadOnly Property appPoliza() As String
+            Get
+                Return CType(Me("appPoliza"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("imperial 1")>  _
+        Public ReadOnly Property appLoginEmp() As String
+            Get
+                Return CType(Me("appLoginEmp"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("wsprueba")>  _
+        Public ReadOnly Property appUsuario() As String
+            Get
+                Return CType(Me("appUsuario"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("123456")>  _
+        Public ReadOnly Property appPass() As String
+            Get
+                Return CType(Me("appPass"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("50740"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        ")>  _
+        Public ReadOnly Property appCodSal() As String
+            Get
+                Return CType(Me("appCodSal"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("https://api-sodimac-pgs.buffetcloud.io/pgs-dte-testing/api/imp/payments/getPaymen"& _ 
-            "tInfo")>  _
+            "tInfo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        ")>  _
         Public ReadOnly Property getPaymentInfo() As String
             Get
                 Return CType(Me("getPaymentInfo"),String)
@@ -96,7 +185,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("LogTrace")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute(".\Trace")>  _
         Public ReadOnly Property LogTrace() As String
             Get
                 Return CType(Me("LogTrace"),String)
@@ -113,9 +202,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.Ws_Test_POR.My.MySettings
+        Friend ReadOnly Property Settings() As Global.RsServicePOR.My.MySettings
             Get
-                Return Global.Ws_Test_POR.My.MySettings.Default
+                Return Global.RsServicePOR.My.MySettings.Default
             End Get
         End Property
     End Module

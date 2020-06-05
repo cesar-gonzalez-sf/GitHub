@@ -61,3 +61,7 @@ D:\GitHub\Ws-Test_POR\Ws-Test_POR\obj\Debug\Ws-Test_POR.dll
 D:\GitHub\Ws-Test_POR\Ws-Test_POR\obj\Debug\Ws-Test_POR.xml
 D:\GitHub\Ws-Test_POR\Ws-Test_POR\obj\Debug\Ws-Test_POR.pdb
 D:\GitHub\Ws-Test_POR\Ws-Test_POR\bin\Ws-Test_POR.dll.config
+D:\GitHub\Ws-Test_POR\Ws-Test_POR\bin\Newtonsoft.Json.dll
+D:\GitHub\Ws-Test_POR\Ws-Test_POR\bin\RestSharp.dll
+D:\GitHub\Ws-Test_POR\Ws-Test_POR\bin\Newtonsoft.Json.xml
+D:\GitHub\Ws-Test_POR\Ws-Test_POR\bin\RestSharp.xml
