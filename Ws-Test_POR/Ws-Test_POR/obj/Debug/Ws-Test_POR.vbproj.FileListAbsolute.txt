@@ -60,3 +60,4 @@ D:\GitHub\Ws-Test_POR\Ws-Test_POR\obj\Debug\Ws-Test_POR.vbproj.CopyComplete
 D:\GitHub\Ws-Test_POR\Ws-Test_POR\obj\Debug\Ws-Test_POR.dll
 D:\GitHub\Ws-Test_POR\Ws-Test_POR\obj\Debug\Ws-Test_POR.xml
 D:\GitHub\Ws-Test_POR\Ws-Test_POR\obj\Debug\Ws-Test_POR.pdb
+D:\GitHub\Ws-Test_POR\Ws-Test_POR\bin\Ws-Test_POR.dll.config
