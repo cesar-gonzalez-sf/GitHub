@@ -1,4 +1,3 @@
-D:\GitHub\Ws-Test_POR\Ws-Test_POR\bin\Ws-Test_POR.dll.config
 D:\GitHub\Ws-Test_POR\Ws-Test_POR\bin\Ws-Test_POR.dll
 D:\GitHub\Ws-Test_POR\Ws-Test_POR\bin\Ws-Test_POR.pdb
 D:\GitHub\Ws-Test_POR\Ws-Test_POR\bin\Ws-Test_POR.xml
