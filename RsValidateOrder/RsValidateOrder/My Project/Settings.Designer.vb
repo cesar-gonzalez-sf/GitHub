@@ -240,7 +240,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=APOLO;Initial Catalog=SAV;Persist Security Info=True;User ID=SavSysUs"& _ 
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=apolo;Initial Catalog=SAV;Persist Security Info=True;User ID=SavSysUs"& _ 
             "er;Password=SavSysUser;Application ")>  _
         Public ReadOnly Property sqlConnection() As String
             Get

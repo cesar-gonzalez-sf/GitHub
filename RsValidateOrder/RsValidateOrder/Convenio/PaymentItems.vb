@@ -50,12 +50,12 @@
         End Set
     End Property
 
-    Private ptipoMoneda As Integer
-    Public Property tipoMoneda() As Integer
+    Private ptipoMoneda As String
+    Public Property tipoMoneda() As String
         Get
             Return ptipoMoneda
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             ptipoMoneda = value
         End Set
     End Property

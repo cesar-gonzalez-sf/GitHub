@@ -128,7 +128,6 @@ Public Class ClsProcesos
                             If vDr.HasRows Then
                                 While vDr.Read
                                     ImperialConfirmPaymentResult.OrdenVenta = vDr("ORDEN_VENTA")
-                                    ImperialConfirmPaymentResult.Documento = vDr("DOCUMENTO")
                                     ImperialConfirmPaymentResult.NroDocumento = vDr("NRO_DOCUMENTO")
                                     ImperialConfirmPaymentResult.Channel = vDr("CHANNEL")
                                     ImperialConfirmPaymentResult.Tienda = vDr("TIENDA")

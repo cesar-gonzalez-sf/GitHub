@@ -80,9 +80,8 @@ Public Class PaymentProcess
             request.AddHeader("x-ccasset-language", "es")
 
             Dim UploadObject As New JObject()
-
-
-            Dim UploadObjectS As New JObject
+            Dim UploadObjectItems As New JObject()
+            Dim UploadObjectPago As New JObject()
             Dim UploadArray As New JArray()
 
             UploadObject.Add("country", "CL")
@@ -91,39 +90,34 @@ Public Class PaymentProcess
             UploadObject.Add("storeId", Req.Tienda)
             UploadObject.Add("terminalId", "01")
             UploadObject.Add("ordenVenta", Req.OrdenVenta)
-            UploadObject.Add("tipoDocumento", Req.Documento)
+            UploadObject.Add("tipoDocumento", Req.TipoDocumento)
             UploadObject.Add("numeroDocumento", Req.NroDocumento)
             UploadObject.Add("numeroDocTributario", Req.Nro_Impreso)
             UploadObject.Add("montoDoc", Req.Total)
 
-
-            UploadObjectS.Add(UploadObject)
             For Each vP In Req.items
-                UploadObject = New JObject()
-                UploadObject.Add("numeroLinea", vP.numeroLinea)
-                UploadObject.Add("sku", vP.sku)
-                UploadObject.Add("descripcion", vP.descripcion)
-                UploadObject.Add("cantidad", vP.cantidad)
-                UploadObject.Add("unidad", vP.unidad)
-                UploadObject.Add("tipoMoneda", vP.tipoMoneda)
-                UploadObject.Add("monto", vP.monto)
-                UploadArray.Add(UploadObject)
+                UploadObjectItems = New JObject()
+                UploadObjectItems.Add("numeroLinea", vP.numeroLinea)
+                UploadObjectItems.Add("sku", vP.sku)
+                UploadObjectItems.Add("descripcion", vP.descripcion)
+                UploadObjectItems.Add("cantidad", vP.cantidad)
+                UploadObjectItems.Add("unidad", vP.unidad)
+                UploadObjectItems.Add("tipoMoneda", vP.tipoMoneda)
+                UploadObjectItems.Add("monto", vP.monto)
+                UploadArray.Add(UploadObjectItems)
             Next
-            UploadObjectS.Add("items", UploadArray)
+            UploadObject.Add("items", UploadArray)
 
             UploadArray = New JArray()
             For Each vP In Req.items
-                UploadObject = New JObject()
-                UploadObject.Add("tipo", Req.TipoDocumentoPago)
-                UploadObject.Add("monto", Req.Monto)
-                UploadArray.Add(UploadObject)
+                UploadObjectPago = New JObject()
+                UploadObjectPago.Add("tipo", Req.TipoDocumentoPago)
+                UploadObjectPago.Add("monto", Req.Monto)
+                UploadArray.Add(UploadObjectPago)
             Next
-            UploadObjectS.Add("formasPago", UploadArray)
+            UploadObject.Add("formasPago", UploadArray)
 
-            Util.mpMensaje(UploadObjectS.ToString & "- JSON", EventLogEntryType.Information, True)
-
-
-            Dim postdata As Byte() = System.Text.Encoding.UTF8.GetBytes(UploadObjectS.ToString)
+            Dim postdata As Byte() = System.Text.Encoding.UTF8.GetBytes(UploadObject.ToString)
             request.AddParameter("application/json", postdata, ParameterType.RequestBody)
 
             Dim response As IRestResponse = client.Execute(request)

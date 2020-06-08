@@ -68,7 +68,7 @@
       <Value Profile="(Default)">.\Trace</Value>
     </Setting>
     <Setting Name="sqlConnection" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Data Source=APOLO;Initial Catalog=SAV;Persist Security Info=True;User ID=SavSysUser;Password=SavSysUser;Application </Value>
+      <Value Profile="(Default)">Data Source=apolo;Initial Catalog=SAV;Persist Security Info=True;User ID=SavSysUser;Password=SavSysUser;Application </Value>
     </Setting>
   </Settings>
 </SettingsFile>
