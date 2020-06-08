@@ -56,7 +56,7 @@
       <HintPath>..\..\..\..\Desktop\SERVPOR\Libraries\OBCOM.EcuLink.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
-      <HintPath>..\..\RsQuote\RsQuote\bin\RestSharp.dll</HintPath>
+      <HintPath>C:\Users\ex.sf.dvegas\Documents\Imperial\Respaldo new equipo\Imperial_net_apps\_.NET\win_getPricesList\libs\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

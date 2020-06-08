@@ -3,7 +3,7 @@ Imports System.Data.SqlClient
 
 Public Class ClsProcesos
 
-    Private vStrCnn As String = My.Settings.sqlConnection
+    Private vStrCnn As String = My.Settings.ConnectionString
 
     Private ReadOnly Property getFechaSistema() As String
         Get
@@ -84,31 +84,16 @@ Public Class ClsProcesos
         Dim Util As New Utilities
         Dim ImperialConfirmPaymentResult As New ImperialGetConfirmPaymentResult
         Try
-            Using Connection As New SqlConnection(vStrCnn)
-                Connection.Open()
-                Using Command As SqlCommand = Connection.CreateCommand()
-
-                    Command.CommandText = "dbo.SAV_VT_ValidaValeVtaPOR"
-                    Command.CommandType = CommandType.StoredProcedure
-
-                    Dim Parameter As SqlParameter
-
-                    '1: Input parameter "ADAPI_USER_NAME" varchar(40)
-                    Parameter = Command.Parameters.Add("TIPO_DOCUMENTO", SqlDbType.NVarChar, 3)
-                    Parameter.Direction = ParameterDirection.Input
-                    Parameter.Value = Input.tipo_documento
-
-                    '2: Input parameter "ADAPI_USER_CODE" varchar(7)
-                    Parameter = Command.Parameters.Add("NRO_IMPRESO", SqlDbType.NVarChar, 10)
-                    Parameter.Direction = ParameterDirection.Input
-                    Parameter.Value = Input.nro_impreso
-
-                    '3: Input parameter "ADAPI_TERM_NAME" varchar(16)
-                    Parameter = Command.Parameters.Add("CODIGO_POR", SqlDbType.NVarChar, 10)
-                    Parameter.Direction = ParameterDirection.Input
-                    Parameter.Value = Input.codigo_por
-
-                    Using vDr As SqlDataReader = Command.ExecuteReader()
+            Using vCn As New SqlConnection(vStrCnn)
+                vCn.Open()
+                Using vCm As New SqlCommand()
+                    vCm.CommandText = "SAV_VT_ValidaValeVtaPOR"
+                    vCm.CommandType = CommandType.StoredProcedure
+                    vCm.Parameters.AddWithValue("@TIPO_DOCUMENTO", Input.tipo_documento)
+                    vCm.Parameters.AddWithValue("@NRO_IMPRESO", Input.nro_impreso)
+                    vCm.Parameters.AddWithValue("@CODIGO_POR", Input.codigo_por)
+                    vCm.Connection = vCn
+                    Using vDr As SqlDataReader = vCm.ExecuteReader
 
                         If vDr.HasRows Then
                             While vDr.Read
