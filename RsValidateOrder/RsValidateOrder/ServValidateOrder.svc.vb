@@ -19,38 +19,46 @@ Public Class ServValidateOrder
         HttpContext.Current.Response.AddHeader("Access-Control-Max-Age", My.Settings.AccessControlMaxAge)
     End Sub
 
-    Function ServicePOR(ByVal RequestPOR As PropertysPaymentInfoRequest) As PropertysPaymentInfoResponse Implements IServValidateOrder.ServicePOR
+    Function ServicePOR() As Boolean Implements IServValidateOrder.ServicePOR
 
-        AgregaHeaderPorCORS()
 
-        Dim Resp As New PropertysPaymentInfoResponse
+        Dim vRes As New PaymentProcess
+        Dim Process As New ClsProcesos
+        Dim Util As New Utilities
+        Dim vMessage As String
 
-        Dim Proceso As New PaymentProcess
+        Try
+            vMessage = "No se pudo registrar pago, favor dirigirse a meson de arriendo de herramientas para registro manual"
 
-        Dim ClsBd As New ClsProcesos
+            Dim vCodigo As Integer
+            vCodigo = 0
 
-        Dim Result As Boolean
 
-        Result = Proceso.PGetPaymentInfoPOR(RequestPOR, Resp)
+            'Se valida convenio de arriendo            
+            Dim Input As New ConfirmPaymentInput
+            Dim Res As New ConfirmPaymentResponse
 
-        Dim ListSku As String
-        ListSku = ""
-        For Each item As PaymentItems In Resp.items
-            ListSku = ListSku & ";" & item.sku & "," & item.monto
-        Next
+            Input.tipo_documento = "BLV"
+            Input.nro_impreso = "0014282088"
+            Input.codigo_por = "21358000336"
 
-        Dim Nro_interno As String = ""
+            Dim ImperialConfirmPaymentResult = Process.mpGetConfirmPayment(Input) '
 
-        Nro_interno = ClsBd.mpGetInternalNumber(RequestPOR.storeId, "124655757", ListSku, RequestPOR.ordenVenta)
 
-        If Result Then
-            Return Resp
-        Else
-            Resp.codResponse = 0
-            Resp.descResponse = "No hubo respuesta"
+            If Not ImperialConfirmPaymentResult Is Nothing Then
+                If vRes.PConfirmPaymentPOR(ImperialConfirmPaymentResult, Res) Then
+                    vMessage = ""
+                    vCodigo = 1
+                End If
+            End If
 
-            Return Resp
-        End If
+
+
+        Catch ex As Exception
+
+        End Try
+
+        Return True
 
     End Function
 End Class

@@ -7,6 +7,6 @@ Public Interface IServValidateOrder
                RequestFormat:=WebMessageFormat.Json,
                ResponseFormat:=WebMessageFormat.Json,
                BodyStyle:=WebMessageBodyStyle.WrappedRequest)>
-    Function ServicePOR(ByVal RequestPOR As PropertysPaymentInfoRequest) As PropertysPaymentInfoResponse
+    Function ServicePOR() As Boolean
 
 End Interface
