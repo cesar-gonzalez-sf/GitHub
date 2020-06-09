@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/wsSaldo/Service1" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/wsSaldo/Service1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/wsSaldo/Service1">
+      <s:element name="wsSaldo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nPoliza" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sEmpresa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sContrasena" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sRutSR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sNombreSR" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nAnoMes" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="wsSaldoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsSaldoResult" type="tns:clsLinea" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsLinea">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="nPoliza" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sResultado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dFechaCon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cSujeto" type="tns:clsPersona" />
+          <s:element minOccurs="0" maxOccurs="1" name="sMoneda" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="nMonto" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsPersona">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="nCodigo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="nRut" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDv" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sTipoPersona" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDireccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCiudad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sPais" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="clsLinea" nillable="true" type="tns:clsLinea" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="wsSaldoSoapIn">
+    <wsdl:part name="parameters" element="tns:wsSaldo" />
+  </wsdl:message>
+  <wsdl:message name="wsSaldoSoapOut">
+    <wsdl:part name="parameters" element="tns:wsSaldoResponse" />
+  </wsdl:message>
+  <wsdl:message name="wsSaldoHttpGetIn">
+    <wsdl:part name="nPoliza" type="s:string" />
+    <wsdl:part name="sEmpresa" type="s:string" />
+    <wsdl:part name="sUsuario" type="s:string" />
+    <wsdl:part name="sContrasena" type="s:string" />
+    <wsdl:part name="sRutSR" type="s:string" />
+    <wsdl:part name="sNombreSR" type="s:string" />
+    <wsdl:part name="nAnoMes" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="wsSaldoHttpGetOut">
+    <wsdl:part name="Body" element="tns:clsLinea" />
+  </wsdl:message>
+  <wsdl:message name="wsSaldoHttpPostIn">
+    <wsdl:part name="nPoliza" type="s:string" />
+    <wsdl:part name="sEmpresa" type="s:string" />
+    <wsdl:part name="sUsuario" type="s:string" />
+    <wsdl:part name="sContrasena" type="s:string" />
+    <wsdl:part name="sRutSR" type="s:string" />
+    <wsdl:part name="sNombreSR" type="s:string" />
+    <wsdl:part name="nAnoMes" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="wsSaldoHttpPostOut">
+    <wsdl:part name="Body" element="tns:clsLinea" />
+  </wsdl:message>
+  <wsdl:portType name="wsSaldoSoap">
+    <wsdl:operation name="wsSaldo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta Saldo disponible de Línea de Crédito para un mes Específico</wsdl:documentation>
+      <wsdl:input message="tns:wsSaldoSoapIn" />
+      <wsdl:output message="tns:wsSaldoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="wsSaldoHttpGet">
+    <wsdl:operation name="wsSaldo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta Saldo disponible de Línea de Crédito para un mes Específico</wsdl:documentation>
+      <wsdl:input message="tns:wsSaldoHttpGetIn" />
+      <wsdl:output message="tns:wsSaldoHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="wsSaldoHttpPost">
+    <wsdl:operation name="wsSaldo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta Saldo disponible de Línea de Crédito para un mes Específico</wsdl:documentation>
+      <wsdl:input message="tns:wsSaldoHttpPostIn" />
+      <wsdl:output message="tns:wsSaldoHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsSaldoSoap" type="tns:wsSaldoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="wsSaldo">
+      <soap:operation soapAction="http://tempuri.org/wsSaldo/Service1/wsSaldo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsSaldoSoap12" type="tns:wsSaldoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="wsSaldo">
+      <soap12:operation soapAction="http://tempuri.org/wsSaldo/Service1/wsSaldo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsSaldoHttpGet" type="tns:wsSaldoHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="wsSaldo">
+      <http:operation location="/wsSaldo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsSaldoHttpPost" type="tns:wsSaldoHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="wsSaldo">
+      <http:operation location="/wsSaldo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsSaldo">
+    <wsdl:port name="wsSaldoSoap" binding="tns:wsSaldoSoap">
+      <soap:address location="http://clientes.seguroscontinental.com/wsSaldoD/wsSaldo.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsSaldoSoap12" binding="tns:wsSaldoSoap12">
+      <soap12:address location="http://clientes.seguroscontinental.com/wsSaldoD/wsSaldo.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsSaldoHttpGet" binding="tns:wsSaldoHttpGet">
+      <http:address location="http://clientes.seguroscontinental.com/wsSaldoD/wsSaldo.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsSaldoHttpPost" binding="tns:wsSaldoHttpPost">
+      <http:address location="http://clientes.seguroscontinental.com/wsSaldoD/wsSaldo.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

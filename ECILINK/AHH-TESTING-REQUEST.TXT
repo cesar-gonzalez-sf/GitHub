@@ -1,0 +1,59 @@
+
+==================================================================================================
+  POST https://api-sodimac-pgs.buffetcloud.io/pgs-dte-testing/api/imp/payments/getPaymentInfo
+==================================================================================================
+{
+	"country" : 	"CL",
+	"commerce": 	"IMPERIAL",
+	"channel": 		21,
+	"storeId": 		723,
+	"terminalId": 	12,
+	"ordenVenta": 	"21723001005"
+}
+
+==================================================================================================
+  POST https://api-sodimac-pgs.buffetcloud.io/pgs-dte-testing/api/imp/payments/confirmPayment
+==================================================================================================
+{
+	"country" : 	"CL",
+	"commerce": 	"IMPERIAL",
+	"channel": 		21,
+	"storeId": 		723,
+	"terminalId": 	12,
+	"ordenVenta": 	"21723001002",
+	"tipoDocumento": 1,
+	"numeroDocumento":		"21000456",
+	"numeroDocTributario":	"BX0089267",
+	"montoDoc":				50000,
+
+	"items": [
+		{
+			"numeroLinea":	1,
+			"sku":			"6462337X",
+			"descripcion":	"TROMPO ELECTRICO 120V",
+			"cantidad":		3,
+			"unidad":		"CU",
+			"tipoMoneda":	1,	
+			"monto":		10000
+		},
+		{
+			"numeroLinea":	2,
+			"sku":			"4524452",
+			"descripcion":	"TALADRO 2000 WATTS",
+			"cantidad":		1,
+			"unidad":		"CU",
+			"tipoMoneda":	1,	
+			"monto":		20000
+		}
+	],
+	
+	"formasPago": [
+		{
+			"tipo":				"EF",
+			"monto":			3312312,
+			"numeroMedioPago":	"423764237",
+			"numeroCuotas":		6,
+			"codAutorizacion":	"230000890"
+		}
+	]
+}

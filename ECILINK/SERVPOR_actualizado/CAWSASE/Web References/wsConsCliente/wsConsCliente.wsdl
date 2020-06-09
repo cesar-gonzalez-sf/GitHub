@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/wsConsCliente/Service1" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/wsConsCliente/Service1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/wsConsCliente/Service1">
+      <s:element name="wsConsultaCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nPoliza" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sEmpresa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sContrasena" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sRutSR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sNombreSR" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="wsConsultaClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsConsultaClienteResult" type="tns:clsLinea" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsLinea">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="nPoliza" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sResultado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dFechaSol" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cAsegurado" type="tns:clsPersona" />
+          <s:element minOccurs="0" maxOccurs="1" name="cSujeto" type="tns:clsPersona" />
+          <s:element minOccurs="0" maxOccurs="1" name="cLineaNomCollection" type="tns:ArrayOfClsLineaNom" />
+          <s:element minOccurs="0" maxOccurs="1" name="cLineaInn" type="tns:clsLineaInn" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsPersona">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="nCodigo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="nRut" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDv" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sTipoPersona" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDireccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCiudad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sPais" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsLineaNom">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsLineaNom" nillable="true" type="tns:clsLineaNom" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsLineaNom">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sVigDesde" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sVigHasta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sMatriz" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sMoneda" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="nMontoSolic" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="nMonto" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sEstado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCondicionVta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sLineaNeg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sPlazo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sObservacion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsLineaInn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sFechaCons" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="nEstado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDesEstado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCodigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sFechaHasta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCodigoAse" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="clsLinea" nillable="true" type="tns:clsLinea" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="wsConsultaClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:wsConsultaCliente" />
+  </wsdl:message>
+  <wsdl:message name="wsConsultaClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:wsConsultaClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="wsConsultaClienteHttpGetIn">
+    <wsdl:part name="nPoliza" type="s:string" />
+    <wsdl:part name="sEmpresa" type="s:string" />
+    <wsdl:part name="sUsuario" type="s:string" />
+    <wsdl:part name="sContrasena" type="s:string" />
+    <wsdl:part name="sRutSR" type="s:string" />
+    <wsdl:part name="sNombreSR" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="wsConsultaClienteHttpGetOut">
+    <wsdl:part name="Body" element="tns:clsLinea" />
+  </wsdl:message>
+  <wsdl:message name="wsConsultaClienteHttpPostIn">
+    <wsdl:part name="nPoliza" type="s:string" />
+    <wsdl:part name="sEmpresa" type="s:string" />
+    <wsdl:part name="sUsuario" type="s:string" />
+    <wsdl:part name="sContrasena" type="s:string" />
+    <wsdl:part name="sRutSR" type="s:string" />
+    <wsdl:part name="sNombreSR" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="wsConsultaClienteHttpPostOut">
+    <wsdl:part name="Body" element="tns:clsLinea" />
+  </wsdl:message>
+  <wsdl:portType name="wsConsClienteSoap">
+    <wsdl:operation name="wsConsultaCliente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta Cliente de una Póliza, tanto Nominado como Innominado</wsdl:documentation>
+      <wsdl:input message="tns:wsConsultaClienteSoapIn" />
+      <wsdl:output message="tns:wsConsultaClienteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="wsConsClienteHttpGet">
+    <wsdl:operation name="wsConsultaCliente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta Cliente de una Póliza, tanto Nominado como Innominado</wsdl:documentation>
+      <wsdl:input message="tns:wsConsultaClienteHttpGetIn" />
+      <wsdl:output message="tns:wsConsultaClienteHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="wsConsClienteHttpPost">
+    <wsdl:operation name="wsConsultaCliente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta Cliente de una Póliza, tanto Nominado como Innominado</wsdl:documentation>
+      <wsdl:input message="tns:wsConsultaClienteHttpPostIn" />
+      <wsdl:output message="tns:wsConsultaClienteHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsConsClienteSoap" type="tns:wsConsClienteSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="wsConsultaCliente">
+      <soap:operation soapAction="http://tempuri.org/wsConsCliente/Service1/wsConsultaCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsConsClienteSoap12" type="tns:wsConsClienteSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="wsConsultaCliente">
+      <soap12:operation soapAction="http://tempuri.org/wsConsCliente/Service1/wsConsultaCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsConsClienteHttpGet" type="tns:wsConsClienteHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="wsConsultaCliente">
+      <http:operation location="/wsConsultaCliente" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsConsClienteHttpPost" type="tns:wsConsClienteHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="wsConsultaCliente">
+      <http:operation location="/wsConsultaCliente" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsConsCliente">
+    <wsdl:port name="wsConsClienteSoap" binding="tns:wsConsClienteSoap">
+      <soap:address location="http://clientes.seguroscontinental.com/wsConsClienteD/wsConsCliente.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsConsClienteSoap12" binding="tns:wsConsClienteSoap12">
+      <soap12:address location="http://clientes.seguroscontinental.com/wsConsClienteD/wsConsCliente.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsConsClienteHttpGet" binding="tns:wsConsClienteHttpGet">
+      <http:address location="http://clientes.seguroscontinental.com/wsConsClienteD/wsConsCliente.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsConsClienteHttpPost" binding="tns:wsConsClienteHttpPost">
+      <http:address location="http://clientes.seguroscontinental.com/wsConsClienteD/wsConsCliente.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

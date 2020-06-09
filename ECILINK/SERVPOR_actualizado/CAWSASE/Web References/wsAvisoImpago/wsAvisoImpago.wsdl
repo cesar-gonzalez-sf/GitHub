@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/wsAvisoImpago/Service1" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/wsAvisoImpago/Service1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/wsAvisoImpago/Service1">
+      <s:element name="wsAvisoImpago">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nPoliza" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sEmpresa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sContrasena" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sRutSR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sNombreSR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPaisSR" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nCantDoctos" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sNumDocto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMoneda" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nMonto" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFecEmision" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFecVence" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sObservacion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="wsAvisoImpagoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsAvisoImpagoResult" type="tns:clsAviso" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsAviso">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="nPoliza" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sResultado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dFechaSol" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cAsegurado" type="tns:clsPersona" />
+          <s:element minOccurs="0" maxOccurs="1" name="cSujeto" type="tns:clsPersona" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsPersona">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="nCodigo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="nRut" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDv" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sTipoPersona" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDireccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCiudad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sPais" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="clsAviso" nillable="true" type="tns:clsAviso" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="wsAvisoImpagoSoapIn">
+    <wsdl:part name="parameters" element="tns:wsAvisoImpago" />
+  </wsdl:message>
+  <wsdl:message name="wsAvisoImpagoSoapOut">
+    <wsdl:part name="parameters" element="tns:wsAvisoImpagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="wsAvisoImpagoHttpGetIn">
+    <wsdl:part name="nPoliza" type="s:string" />
+    <wsdl:part name="sEmpresa" type="s:string" />
+    <wsdl:part name="sUsuario" type="s:string" />
+    <wsdl:part name="sContrasena" type="s:string" />
+    <wsdl:part name="sRutSR" type="s:string" />
+    <wsdl:part name="sNombreSR" type="s:string" />
+    <wsdl:part name="sPaisSR" type="s:string" />
+    <wsdl:part name="nCantDoctos" type="s:string" />
+    <wsdl:part name="sNumDocto" type="s:string" />
+    <wsdl:part name="sMoneda" type="s:string" />
+    <wsdl:part name="nMonto" type="s:string" />
+    <wsdl:part name="sFecEmision" type="s:string" />
+    <wsdl:part name="sFecVence" type="s:string" />
+    <wsdl:part name="sObservacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="wsAvisoImpagoHttpGetOut">
+    <wsdl:part name="Body" element="tns:clsAviso" />
+  </wsdl:message>
+  <wsdl:message name="wsAvisoImpagoHttpPostIn">
+    <wsdl:part name="nPoliza" type="s:string" />
+    <wsdl:part name="sEmpresa" type="s:string" />
+    <wsdl:part name="sUsuario" type="s:string" />
+    <wsdl:part name="sContrasena" type="s:string" />
+    <wsdl:part name="sRutSR" type="s:string" />
+    <wsdl:part name="sNombreSR" type="s:string" />
+    <wsdl:part name="sPaisSR" type="s:string" />
+    <wsdl:part name="nCantDoctos" type="s:string" />
+    <wsdl:part name="sNumDocto" type="s:string" />
+    <wsdl:part name="sMoneda" type="s:string" />
+    <wsdl:part name="nMonto" type="s:string" />
+    <wsdl:part name="sFecEmision" type="s:string" />
+    <wsdl:part name="sFecVence" type="s:string" />
+    <wsdl:part name="sObservacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="wsAvisoImpagoHttpPostOut">
+    <wsdl:part name="Body" element="tns:clsAviso" />
+  </wsdl:message>
+  <wsdl:portType name="wsAvisoImpagoSoap">
+    <wsdl:operation name="wsAvisoImpago">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ingresa Aviso de Impago de Facturas</wsdl:documentation>
+      <wsdl:input message="tns:wsAvisoImpagoSoapIn" />
+      <wsdl:output message="tns:wsAvisoImpagoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="wsAvisoImpagoHttpGet">
+    <wsdl:operation name="wsAvisoImpago">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ingresa Aviso de Impago de Facturas</wsdl:documentation>
+      <wsdl:input message="tns:wsAvisoImpagoHttpGetIn" />
+      <wsdl:output message="tns:wsAvisoImpagoHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="wsAvisoImpagoHttpPost">
+    <wsdl:operation name="wsAvisoImpago">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ingresa Aviso de Impago de Facturas</wsdl:documentation>
+      <wsdl:input message="tns:wsAvisoImpagoHttpPostIn" />
+      <wsdl:output message="tns:wsAvisoImpagoHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsAvisoImpagoSoap" type="tns:wsAvisoImpagoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="wsAvisoImpago">
+      <soap:operation soapAction="http://tempuri.org/wsAvisoImpago/Service1/wsAvisoImpago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsAvisoImpagoSoap12" type="tns:wsAvisoImpagoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="wsAvisoImpago">
+      <soap12:operation soapAction="http://tempuri.org/wsAvisoImpago/Service1/wsAvisoImpago" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsAvisoImpagoHttpGet" type="tns:wsAvisoImpagoHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="wsAvisoImpago">
+      <http:operation location="/wsAvisoImpago" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsAvisoImpagoHttpPost" type="tns:wsAvisoImpagoHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="wsAvisoImpago">
+      <http:operation location="/wsAvisoImpago" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsAvisoImpago">
+    <wsdl:port name="wsAvisoImpagoSoap" binding="tns:wsAvisoImpagoSoap">
+      <soap:address location="http://clientes.seguroscontinental.com/wsAvisoImpagoD/wsAvisoImpago.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsAvisoImpagoSoap12" binding="tns:wsAvisoImpagoSoap12">
+      <soap12:address location="http://clientes.seguroscontinental.com/wsAvisoImpagoD/wsAvisoImpago.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsAvisoImpagoHttpGet" binding="tns:wsAvisoImpagoHttpGet">
+      <http:address location="http://clientes.seguroscontinental.com/wsAvisoImpagoD/wsAvisoImpago.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsAvisoImpagoHttpPost" binding="tns:wsAvisoImpagoHttpPost">
+      <http:address location="http://clientes.seguroscontinental.com/wsAvisoImpagoD/wsAvisoImpago.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
