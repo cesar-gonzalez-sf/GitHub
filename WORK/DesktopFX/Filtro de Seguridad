@@ -1,0 +1,95 @@
+La herramienta OBCOM SQL Wizard puede generar código que suministra las credenciales del usuario de DesktopFX al llamar a procedimientos almacenados. Para esto, los tres primeros parámetros del procedimiento tienen que ser declarados de la siguiente forma para SQL Server:
+
+ 
+
+CREATE PROCEDURE dbo.EJEMPLO
+
+    @WSS_USER_CODE      NVARCHAR(100),
+
+    @WSS_PROFILE_CODE   INTEGER,
+
+    @WSS_STATION_CODE   NVARCHAR(100),
+
+    ...
+
+ 
+
+La declaración del procedimiento para Oracle:
+
+ 
+
+CREATE OR REPLACE PROCEDURE EJEMPLO(
+
+    WSS_USER_CODE$      IN  NVARCHAR2,
+
+    WSS_PROFILE_CODE$   IN  INTEGER,
+
+    WSS_STATION_CODE$   IN  NVARCHAR2,
+
+    ...
+
+ 
+
+La declaración del procedimiento para PostgreSQL:
+
+ 
+
+CREATE OR REPLACE FUNCTION ejemplo(
+
+    _wss_user_code      IN  VARCHAR,
+
+    _wss_profile_code   IN  INTEGER,
+
+    _wss_station_code   IN  VARCHAR,
+
+    ...
+
+ 
+
+Como se observa, los tres primeros parámetros del procedimiento deben cumplir las siguientes condiciones:
+
+ 
+
+    Primero se llama WSS_USER_CODE (sin caracteres especiales), y su tipo es compatible con VARCHAR.
+    Segundo se llama WSS_PROFILE_CODE (sin caracteres especiales), y su tipo es compatible con INTEGER.
+    Tercero se llama WSS_STATION_CODE (sin caracteres especiales), y su tipo es compatible con VARCHAR.
+
+ 
+
+Si estas condiciones se cumplen, OBCOM SQL Wizard genera código que suministra el código del usuario, el perfil del usuario, y el nombre de la estación de trabajo. Estos valores los obtiene del contexto del Servicio Web, el cual es inicializado por el Filtro de Seguridad de DesktopFX. Si el Servicio Web no tiene asignado el Filtro de Seguridad, el código generado disparará una excepción, y no ejecutará el procedimiento almacenado.
+
+ 
+
+Ustedes verán que estos tres parámetros especiales del procedimiento no forman para de los métodos del Servicio Web, y ustedes no podrán suministrar sus valores en la llamada que realizan desde el plugin que ejecuta dentro de DesktopFX. Estos valores son suministrados al procedimiento almacenado por la lógica del Servicio Web que ejecuta en Payara. Para esto, es requisito que el Servicio Web tenga asignado el Filtro de Seguridad en el archivo “WebContent/WEB-INF/web.xml”:
+
+ 
+
+…
+
+<filter>
+
+  <filter-name>SecurityFilter</filter-name>
+
+  <filter-class>cl.obcom.web.security.SecurityFilter</filter-class>
+
+</filter>
+
+ 
+
+<filter-mapping>
+
+  <filter-name>SecurityFilter</filter-name>
+
+  <servlet-name>SampleEmpsWeb</servlet-name>
+
+</filter-mapping>
+
+…
+
+ 
+
+El Filtro de Seguridad de DesktopFX es muy importante. Aquellos que no usan este filtro, están permitiendo que cualquiera en la red use sus Servicios Web, porque los llamados no se autentican antes de ejecutar los procedimientos almacenados.
+
+ 
+
+Saludos,

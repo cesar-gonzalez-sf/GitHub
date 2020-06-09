@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Email Venta Web</title>
+
+	<style>
+
+        img {
+            border: none;
+            -ms-interpolation-mode: bicubic;
+            width: 80%;
+            margin-left: 22px;
+        }
+        body {
+            background-color: #f6f6f6;
+            font-family: sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }   
+        .body {
+            background-color: #f6f6f6;
+            width: 100%;
+            
+        }
+        div.body1 {
+        	background-color: #f6f6f6;
+        	text-align: center;
+        }
+        h2,h4 {
+        	color: #003c69;        	       	
+        }
+        h3 {
+        	color: #003c69;
+        	float: left;
+        	margin-left: 430px;
+
+        }
+        .imgheader {
+            width: 50%;
+            height: 120%;            
+        }
+        .img123 {        	
+        	height: 50%;
+        	width: 3%;
+        	margin-top: 80;
+        	float: left;
+        	margin-left: 430px;
+        }
+        .texto123 {
+            margin: 5 50;
+        }
+        tr.table {
+            background-color: #273746;
+            height: 30%;            
+        }
+        td.tabla {
+             width: 80%;
+        }
+        p.text {
+        	text-align: left;
+        	margin-left: 430px;
+        	margin-top: -5px;
+        }
+        p.text2 {
+        	text-align: left;
+        	margin-left: 430px;        	
+        }        
+        .cliente {
+        	text-align: left;
+        } 
+        table.monto {
+            margin-left: 880px;
+            text-align: right;
+        }
+        td.articulos {
+            width: 30%;
+            height: 15%;            
+        }
+        td.subtotal {
+            width: 30%;            
+        }
+        td.iva {
+            width: 30%;
+            height: 15%;            
+        }
+        td.total {
+            width: 30%;
+        }
+        .table {
+            background-color: #f6f6f6;
+            width: 50%;
+            margin: center;
+            margin-left: 430px;
+        } 
+		p.footer {
+			border-style: solid;
+			width: 50%;
+			margin: center;
+			margin-left: 430px;
+		}
+        .footer {
+            clear: both;
+            background: white;
+            width: 100%;
+            padding: 0 20px;
+        }
+        .imgfooter {
+           width: 12%;
+           height: 12%; 
+           vertical-align:middle; 
+           margin-top: -15px
+        }
+        p.solid {
+            border-style: solid;
+            width: 50%;
+            margin: center;
+            margin-left: 430px;
+        }
+       /*  
+       /* -------------------------------------   RESPONSIVE AND MOBILE FRIENDLY STYLES  ------------------------------------- */
+
+      @media only screen and (max-width: 620px) {
+        table[class=body] h1 {
+          font-size: 28px !important;
+          margin-bottom: 10px !important;
+        }
+        table[class=body] p,
+        table[class=body] ul,
+        table[class=body] ol,
+        table[class=body] td,
+        table[class=body] span,
+        table[class=body] a {
+            font-size: 16px !important;
+        }
+        table[class=body] .wrapper,
+        table[class=body] .article {
+          padding: 10px !important;
+        }
+        table[class=body] .content {
+          padding: 0 !important;
+        }
+        table[class=body] .container {
+          padding: 0 !important;
+          width: 100% !important;
+        }
+        table[class=body] .main {
+          border-left-width: 0 !important;
+          border-radius: 0 !important;
+          border-right-width: 0 !important;
+        }
+        table[class=body] .btn table {
+          width: 100% !important;
+        }
+        table[class=body] .btn a {
+          width: 100% !important;
+        }
+        table[class=body] .img-responsive {
+          height: auto !important;
+          max-width: 100% !important;
+          width: auto !important;
+        }
+      }
+  /* -------------------------------------    PRESERVE THESE STYLES IN THE HEAD    ------------------------------------- */              
+	</style>
+</head>
+<body class="">
+	<div class="body1">
+		<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
+			<img class="imgheader" src="https://soa-desa-iis.imperial.cl/pictures/header.jpg">
+			<h2>Estamos preparando su pedido</h2>
+			<h4>' + @OrdenPedido + '</h4>
+			<img class="img123" src="https://soa-desa-iis.imperial.cl/pictures/123.png">
+			<p class="texto123" align="justify">Validaremos tu pedido.</p>
+			<p class="texto123" align="justify">Recibirás un mail con tu boleta o factura y el detalle de la compra.</p>
+			<p class="texto123" align="justify">Confirmaremos por mail cuando tu compra este lista para la entrega.</p>	
+			<h3>' + @NombreCli +':</h3> 				
+			<tr>
+				<td>
+					<table role="presentation">						
+						<tr>							
+							<p class="text">¡Tenemos una Buena Noticia!</p>
+							<p class="text2">Tu pedido está siendo preparado para ser despachado a ' + @DireccionEntrega + '.</p>
+							<p class="text2">A partir del dia ' + @FechaEntrega + ' segun el detalle de tus productos, entre las 08:30-18:30 hrs.</p>
+						</tr>
+					</table> 					
+				</td>	
+			</tr>
+			<tr>
+				<td>
+					<table role="presentation" class="table">
+						<tr class="table">
+		                    <td class="tabla">
+		                        <font color="#FFFFFF">
+		                            <b>Productos</b>
+		                        </font>
+		                    </td>
+		                    <td class="tabla">
+		                        <font color="#FFFFFF">
+		                            <b>Precio Unitario</b>
+		                        </font>
+		                    </td>
+			                <td class="tabla">
+			                    <font color="#FFFFFF">
+			                        <b>Cantidad</b>
+			                    </font>
+			                </td>
+			                <td class="tabla">
+			                    <font color="#FFFFFF">
+			                        <b>Precio</b>
+			                    </font>
+			                </td>
+						</tr>
+					</table>
+					' + @Productos + ' 
+				</td>
+			</tr>
+			<tr>
+				<td>
+		            <table class="monto" role="presentation">
+		                <tr>
+		                    <td class="articulos">Subtotal ('+@Cant_art+' artículos)</td>
+		                    <td class="subtotal"> $' +@SubTotal + '</td>
+		                </tr>
+		                <tr>
+		                    <td class="iva">
+		                        <b>Total a Pagar (IVA Incluido)</b>
+		                    </td>
+		                    <td class="toal">
+		                        <b> $' + @Total + '</b>
+		                    </td>
+		                </tr>
+            		</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+	                <table cellspacing="0" class="table">
+                    	<tr bgcolor=#273746 height="30">
+                        	<td width=120>
+                            	<font color="#FFFFFF">
+                                	<b>Detalle de Retiro</b>
+                            	</font>
+                        	</td>
+                    	</tr>
+                	</table>
+              		<table cellspacing="0" class="table">
+	                    <tr height="30">
+	                        <td width=60>Nombre del cliente</td>
+	                        <td width=180> ' + @Cliente + '</td>
+	                    </tr>
+	                    <tr>
+	                        <td width=60>Nombre quien recibe</td>
+	                        <td width=180> ' + @Cliente + '</td>
+	                    </tr>
+                	</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+                    <table cellspacing="0" class="table">
+                        <tr>
+                            <IMG  src="https://soa-desa-iis.imperial.cl/pictures/footer.jpg" width="60%" HEIGHT=320>
+                            <td>
+                                <p style="color: #003c69; font-weight: 600;">Descarga Nuestra APP</p>
+                                <br>
+                                <a style="text-decoration: none;" href="https://play.google.com/store/apps/details?id=cl.imperial.app&hl=es">
+                                    <img class="imgfooter" src="http://soa-desa-iis.imperial.cl/pictures/footer_app2.jpg" target="Blank_">
+                                </a>
+                                <a style="text-decoration: none;" href="https://apps.apple.com/cl/app/imperial-app/id1131355568">
+                                    <img class="imgfooter" src="http://soa-desa-iis.imperial.cl/pictures/footer_app.jpg" target="Blank_">
+                                </a>
+                            </td>                            
+                        </tr>                                               
+                    </table>
+                    <table cellpadding="0" class="table">
+                        <tr>
+                            <p class="solid">Este mensaje ha sido generado automáticamante por nuestros sistemas, favor no responder a este email</p>
+                        </tr>
+                    </table>
+				</td>
+			</tr>		
+		</table>
+	</div>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Email Venta Web</title>
+
+	<style>
+
+        img {
+            border: none;
+            -ms-interpolation-mode: bicubic;
+            width: 50%;
+            margin-left: 22px;
+        }
+        body {
+            background-color: #f6f6f6;
+            font-family: sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }   
+        .body {
+            background-color: #f6f6f6;
+            width: 100%;
+            margin: center;
+        }
+        div.body1 {
+        	background-color: #f6f6f6;
+        	text-align: center;
+        }
+        h2,h4 {
+        	color: #003c69;        	       	
+        }
+        h3 {
+        	color: #003c69;
+        	float: left;
+        	margin-left: 430px;
+
+        }
+        .img123 {        	
+        	height: 50%;
+        	width: 3%;
+        	margin-top: 80;
+        	float: left;
+        	margin-left: 430px;
+        }
+        .texto123 {
+            margin: 5 50;
+        }
+        
+        p.text {
+        	text-align: left;
+        	margin-left: 430px;
+        	margin-top: -5px;
+        }
+        p.text2 {
+        	text-align: left;
+        	margin-left: 430px;        	
+        }        
+        .cliente {
+        	text-align: left;
+        } 
+        .table {
+            background-color: #f6f6f6;
+            width: 50%;
+            margin: center;
+            margin-left: 430px;
+        } 
+		p.footer {
+			border-style: solid;
+			width: 50%;
+			margin: center;
+			margin-left: 430px;
+		} 
+        .imgfooter {
+           width: 12%;
+           height: 12%; 
+           vertical-align:middle; 
+           margin-top: -15px
+        }
+        p.solid {
+            border-style: solid;
+            width: 50%;
+            margin: center;
+            margin-left: 430px;
+        }
+       /* -------------------------------------   RESPONSIVE AND MOBILE FRIENDLY STYLES  ------------------------------------- */
+
+      @media only screen and (max-width: 620px) {
+        table[class=body] h1 {
+          font-size: 28px !important;
+          margin-bottom: 10px !important;
+        }
+        table[class=body] p,
+        table[class=body] ul,
+        table[class=body] ol,
+        table[class=body] td,
+        table[class=body] span,
+        table[class=body] a {
+            font-size: 16px !important;
+        }
+        table[class=body] .wrapper,
+        table[class=body] .article {
+          padding: 10px !important;
+        }
+        table[class=body] .content {
+          padding: 0 !important;
+        }
+        table[class=body] .container {
+          padding: 0 !important;
+          width: 100% !important;
+        }
+        table[class=body] .main {
+          border-left-width: 0 !important;
+          border-radius: 0 !important;
+          border-right-width: 0 !important;
+        }
+        table[class=body] .btn table {
+          width: 100% !important;
+        }
+        table[class=body] .btn a {
+          width: 100% !important;
+        }
+        table[class=body] .img-responsive {
+          height: auto !important;
+          max-width: 100% !important;
+          width: auto !important;
+        }
+      }
+  /* -------------------------------------    PRESERVE THESE STYLES IN THE HEAD    ------------------------------------- */              
+	</style>
+</head>
+<body class="">
+	<div class="body1">
+		<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
+			<IMG src="https://soa-desa-iis.imperial.cl/pictures/header.jpg" width="60%" HEIGHT=150>
+			<h2>Estamos preparando su pedido</h2>
+			<h4>' + @OrdenPedido + '</h4>
+			<img class="img123" src="https://soa-desa-iis.imperial.cl/pictures/123.png">
+			<p class="text123" align="justify">Validaremos tu pedido.</p>
+			<p class="text123" align="justify">Recibirás un mail con tu boleta o factura y el detalle de la compra.</p>
+			<p class="text123" align="justify">Confirmaremos por mail cuando tu compra este lista para la entrega.</p>	
+			<h3>' + @NombreCli +':</h3> 				
+			<tr>
+				<td>
+					<table role="presentation">						
+						<tr>							
+							<p class="text">¡Tenemos una Buena Noticia!</p>
+							<p class="text2">Tu pedido está siendo preparado para ser retirado en Tienda ' + @Tienda + ' ubicada en ' + @DireccionTienda + '.</p>
+							<p class="text2">Podrás hacerlo con el número de Boleta/Factura <b>'+ @Nro_impreso + '</b> o tu carnet de identidad..</p>
+						</tr>
+					</table> 					
+				</td>	
+			</tr>
+			<tr>
+				<td>
+					<table role="presentation" class="table">
+						<tr bgcolor=#273746 height="30">
+		                    <td width=120>
+		                        <font color="#FFFFFF">
+		                            <b>Productos</b>
+		                        </font>
+		                    </td>
+		                    <td width=80>
+		                        <font color="#FFFFFF">
+		                            <b>Precio Unitario</b>
+		                        </font>
+		                    </td>
+			                <td width=80>
+			                    <font color="#FFFFFF">
+			                        <b>Cantidad</b>
+			                    </font>
+			                </td>
+			                <td width=80>
+			                    <font color="#FFFFFF">
+			                        <b>Precio</b>
+			                    </font>
+			                </td>
+						</tr>
+					</table>
+					' + @Productos + ' 
+				</td>
+			</tr>
+			<tr>
+				<td>
+		            <table role="presentation" align="RIGHT" style="margin-right: 380px;">
+		                <tr>
+		                    <td width=230 height=15>Subtotal ('+@Cant_art+' artículos)</td>
+		                    <td width=150> $' +@SubTotal + '</td>
+		                </tr>
+		                <tr>
+		                    <td width=230 height=15>
+		                        <b>Total a Pagar (IVA Incluido)</b>
+		                    </td>
+		                    <td width=150>
+		                        <b> $' + @Total + '</b>
+		                    </td>
+		                </tr>
+            		</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+	                <table cellspacing="0" class="table">
+                    	<tr bgcolor=#273746 height="30">
+                        	<td width=120>
+                            	<font color="#FFFFFF">
+                                	<b>Detalle de Retiro</b>
+                            	</font>
+                        	</td>
+                    	</tr>
+                	</table>
+              		<table cellspacing="0" class="table">
+	                    <tr height="30">
+	                        <td width=60>Nombre del cliente</td>
+	                        <td width=180> ' + @Cliente + '</td>
+	                    </tr>
+	                    <tr>
+	                        <td width=60>Nombre quien recibe</td>
+	                        <td width=180> ' + @Cliente + '</td>
+	                    </tr>
+                	</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table cellspacing="0" class="table">
+                        <tr>
+                            <IMG  src="https://soa-desa-iis.imperial.cl/pictures/footer.jpg" width="60%" HEIGHT=320>
+                            <td>
+                                <p style="color: #003c69; font-weight: 600;">Descarga Nuestra APP</p>
+                                <br>
+                                <a style="text-decoration: none;" href="https://play.google.com/store/apps/details?id=cl.imperial.app&hl=es">
+                                    <img class="imgfooter" src="http://soa-desa-iis.imperial.cl/pictures/footer_app2.jpg" target="Blank_">
+                                </a>
+                                <a style="text-decoration: none;" href="https://apps.apple.com/cl/app/imperial-app/id1131355568">
+                                    <img class="imgfooter" src="http://soa-desa-iis.imperial.cl/pictures/footer_app.jpg" target="Blank_">
+                                </a>
+                            </td>                            
+                        </tr>	                        					
+					</table>
+                    <table cellpadding="0" class="table">
+                        <tr>
+                            <p class="solid">Este mensaje ha sido generado automáticamante por nuestros sistemas, favor no responder a este email</p>
+                        </tr>
+                    </table>
+				</td>
+			</tr>		
+		</table>
+	</div>
+</body>
+</html>

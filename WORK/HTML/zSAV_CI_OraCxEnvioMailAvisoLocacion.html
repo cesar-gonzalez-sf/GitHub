@@ -1,0 +1,186 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Envia correo al asignar locación picking tienda</title>
+
+    <style>
+        /* -------------------------------------   RESPONSIVE AND MOBILE FRIENDLY STYLES  ------------------------------------- */
+        
+        @media only screen and (max-width: 620px) {
+            table[class=body] h1 {
+                font-size: 28px !important;
+                margin-bottom: 10px !important;
+                border-collapse: collapse;
+            }
+            table[class=body] p,
+            table[class=body] ul,
+            table[class=body] ol,
+            table[class=body] td,
+            table[class=body] span,
+            table[class=body] a {
+                font-size: 16px !important;
+            }
+            table[class=body] .wrapper,
+            table[class=body] .article {
+                padding: 10px !important;
+            }
+            table[class=body] .content {
+                padding: 0 !important;
+            }
+            table[class=body] .container {
+                padding: 0 !important;
+                width: 100% !important;
+            }
+            table[class=body] .main {
+                border-left-width: 0 !important;
+                border-radius: 0 !important;
+                border-right-width: 0 !important;
+            }
+            table[class=body] .btn table {
+                width: 100% !important;
+            }
+            table[class=body] .btn a {
+                width: 100% !important;
+            }
+            table[class=body] .img-responsive {
+                height: auto !important;
+                max-width: 100% !important;
+                width: auto !important;
+            }
+        }
+        /* -------------------------------------    PRESERVE THESE STYLES IN THE HEAD    ------------------------------------- */
+        
+        .img {
+            float: left;
+        }        
+        p.retirar {            
+            text-align: left;
+            margin-left: 180px;
+            font-weight: normal;            
+        }
+        table.grilla {
+            border: 1;
+            width: 1000px;
+        }
+        tr.campo {
+            background-color: #273746 ;
+            height: 30px;
+        }
+        td.sku {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+            width: 20px; 
+            color: #FFFFFF;
+        }
+        td.producto {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+            width: 80px; 
+            color: #FFFFFF;
+        }
+        td.cantidad {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+            width: 20px; 
+            color: #FFFFFF;
+        }
+        p.Descarga {
+            color: #003c69; 
+            font-weight: 600;
+        }
+        a.App {
+            text-decoration: none;
+        }
+        img.google {
+            vertical-align:middle;  
+            margin-top: -15px;
+        }                
+    </style>
+</head>
+
+<body>
+    <center>
+        <IMG src="https://soa-desa-iis.imperial.cl/Pictures/header.jpg" width="80%" HEIGHT=120>
+    </center>
+    <br>
+    <font color="#003c69" face="Helvetica">            
+        <H2>
+            <center>' + @NombreCli +'</center>
+            <br>
+            <center>¡Tenemos una Buena Noticia!</center>
+        </H2>
+    </font>    
+    <div>
+        <p class="retirar">¡Ya puedes venir a retirar tus productos!</p>
+    </div>
+    <div>
+        <p class="retirar">Informamos que su pedido '+@TIPO_DOCUMENTO_PADRE+'<b> N° ' + @Nro_Impreso + '.</p>        
+    </div>    
+    <div>
+        <p class="retirar">Se encuentra disponible para retiro, en '+@Tienda+'.</p>
+        <p class="retirar">Horarios de atención: Lunes a Viernes de 8:15 a 18:45 horas y Sábados de 8:30 a 14:00 horas.</p>
+    </div>
+    <br>
+    <center>
+        <table class="grilla" cellspacing="0">
+            <tr class="campo">
+                <td class="sku">                    
+                    <b>Sku</b>                        
+                </td>
+                <td class="producto">                    
+                    <b>Producto</b>                        
+                </td>
+                <td class="cantidad">                    
+                    <b>Cantidad</b>                    
+                </td>                
+            </tr>
+            ' + @Productos + '
+        </table>
+    </center>
+    <br>
+    <br>
+    <br>    
+    <table>
+        <tr>
+            <td>
+                <table role="presentation">                     
+                    <tr>                            
+                        <p class="retirar">Acude a la zona demarcada como <u><b>compra en internet y retira en tienda</b></u> para solicitar tu pedido.</p>
+                        <p class="retirar">Para retirar la compra es necesario presentar, según corresponda:</p>                   
+                    </tr>
+                </table>                    
+            </td>   
+        </tr>
+    </table>
+    <center>
+        <IMG src="https://soa-desa-iis.imperial.cl/Pictures/footer.jpg" width=80% HEIGHT=300>
+        <td align="center">
+            <p class="Descarga">Descarga Nuestra APP</p>
+            <a class="App" href="https://play.google.com/store/apps/details?id=cl.imperial.app&hl=es">
+                <img class="google" src="https://soa-desa-iis.imperial.cl/Pictures/footer_app2.jpg" target="Blank_" width="100" height="30">
+            </a>
+            <a class="App" href="https://apps.apple.com/cl/app/imperial-app/id1131355568">
+                <img style="vertical-align:middle; margin-top: -15px" src="https://soa-desa-iis.imperial.cl/Pictures/footer_app.jpg" target="Blank_" width="100" height="30">
+            </a>
+        </td>
+    </center>
+    <br>
+    <table width="100%" border="2" align="center" cellspacing="0" style="width: 80%">
+        <tr>
+            <td>
+                <font SIZE=2>
+                    <center>      
+                        Este mensaje ha sido generado automáticamante por nuestros sistemas, favor no responder a este email      
+                    </center>
+                </font>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

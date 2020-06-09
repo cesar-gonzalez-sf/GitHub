@@ -1,0 +1,149 @@
+<html>      
+        <head>
+            <style>
+            
+             /* -------------------------------------   RESPONSIVE AND MOBILE FRIENDLY STYLES  ------------------------------------- */
+        
+        @media only screen and (max-width: 620px) {
+            table[class=body] h1 {
+                font-size: 28px !important;
+                margin-bottom: 10px !important;
+            }
+            table[class=body] p,
+            table[class=body] ul,
+            table[class=body] ol,
+            table[class=body] td,
+            table[class=body] span,
+            table[class=body] a {
+                font-size: 16px !important;
+            }
+            table[class=body] .wrapper,
+            table[class=body] .article {
+                padding: 10px !important;
+            }
+            table[class=body] .content {
+                padding: 0 !important;
+            }
+            table[class=body] .container {
+                padding: 0 !important;
+                width: 100% !important;
+            }
+            table[class=body] .main {
+                border-left-width: 0 !important;
+                border-radius: 0 !important;
+                border-right-width: 0 !important;
+            }
+            table[class=body] .btn table {
+                width: 100% !important;
+            }
+            table[class=body] .btn a {
+                width: 100% !important;
+            }
+            table[class=body] .img-responsive {
+                height: auto !important;
+                max-width: 100% !important;
+                width: auto !important;
+            }
+        }
+        /* -------------------------------------    PRESERVE THESE STYLES IN THE HEAD    ------------------------------------- */
+            
+                .img {
+                float: left;
+                }
+                .Pasos-title {
+                color: #000000;
+                font-weight: normal;
+                font-weight: bold;
+                }
+            </style>
+        </head>      
+        <body>      
+         <center>      
+          <IMG src="http://soa-desa-iis.imperial.cl/pictures/header.jpg" width="60%" HEIGHT=150>      
+         </center>      
+         <br>         
+         <font color ="#000000" face="Helvetica"><H2><CENTER>¡Tu compra esta lista para ser entregada!</CENTER></H2></font>      
+         <font color ="#000000"><H4><CENTER>' + @OrdenPedido + '</CENTER></H4></font>    
+         
+         <p> 
+        <img src="'+@RutaImg+'132.png" align="left"><p style="margin: 5 50" align="justify">
+          Validaremos tu pedido. 
+          <br><br>
+          Recibirás un mail con tu boleta o factura y el detalle de la compra.</b>      
+          <br><br>
+          Confirmaremos por mail cuando tu compra este lista para la entrega.  
+         </p> 
+        </p>
+         <br>
+         <br><b>' + @NombreCli +':</b><br> 
+         <br>
+         <div class="Pasos-title">¡Tenemos una Buena Noticia!</div>
+         <br>
+         <div>Tu pedido está listo para ser retirado en Tienda ' + @Tienda + ' ubicada en ' + @DireccionTienda + '. De Lu-Vi 08:30-18:30 hrs Sa 09:00-14:00 hrs.</div>
+         <br>
+     <div>A partir del dia ' + @FechaEntrega + ' segun el detalle de tus productos, de Lu-Vi 08:30-18:30 hrs Sábados 09:00-14:00 hrs.</div>
+     <br>
+         <div>Podrás hacerlo con el número de Boleta/Factura <b>'+ @Nro_impreso + '</b> o tu carnet de identidad.</div>
+         <br>    
+     <CENTER>  
+           <Table border=0 width=1000  cellspacing="0" >      
+            <tr bgcolor=#273746 height="30">      
+             <td width=120><font color="#FFFFFF"><b>Productos</b></font></td>      
+             <td width=80><font color="#FFFFFF"><b>Precio Unitario</b></font></td>      
+             <td width=80><font color="#FFFFFF"><b>Cantidad</b></font></td>      
+             <td width=80><font color="#FFFFFF"><b>Precio</b></font></td>      
+            </tr>    
+           ' + @Productos + '       
+           </Table>  
+     </CENTER>      
+          <br/><br/>    
+    <table border =0 align="RIGHT">      
+           <tr>      
+            <td width=230 height=15>Subtotal ('+@Cant_art+' artículos)</td>     
+            <td width=150> $' +@SubTotal + '</td>     
+           </tr>    
+           <tr>      
+            <td width=230 height=15><b>Total a Pagar (IVA Incluido)</b></td>     
+            <td width=150><b> $' + @Total + '</b></td>     
+           </tr>    
+          </table>
+          <br><br><br><br>
+          <CENTER>
+           <Table border=0 width=1000  cellspacing="0" >      
+            <tr bgcolor=#273746 height="30">      
+             <td width=120><font color="#FFFFFF"><b>Detalle de Retiro</b></font></td>    
+            </tr>      
+         </table> 
+         </CENTER>
+         <br>     
+         <center>
+          <table border=0 width=1000  cellspacing="0" >      
+           <tr height="30">      
+            <td width=60>Nombre del cliente</td>     
+            <td width=180>: ' + @Cliente + '</td>     
+           </tr>    
+          <tr>    
+            <td width=60>Nombre quien retira</td>     
+            <td width=180>: ' + @Cliente + '</td>    
+          </tr>    
+          </table> 
+          </center>
+    <br><br>     
+              </CENTER>      
+             </font>      
+            </td></tr>      
+           </table>      
+    <center>      
+             <IMG  src="http://soa-desa-iis.imperial.cl/pictures/footer.jpg" width="60%" HEIGHT=320>    
+            </center>
+            <table width="100%" border="2" align="CENTER" cellspacing="0" style="width: 60%">      
+            <tr><td>      
+             <FONT SIZE=2>      
+              <CENTER>      
+               Este mensaje ha sido generado automáticamante por nuestros sistemas, favor no responder a este email      
+              </CENTER>      
+             </font>      
+            </td></tr>      
+           </table>  
+        </body>      
+       </html>

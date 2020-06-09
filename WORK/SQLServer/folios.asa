@@ -1,0 +1,42 @@
+<%
+'-------------------------------------------------------------------------------
+' Source: /Desktop/Menu/Include/FOLIOS.asp
+' Author: Náyade Muñoz R.(Nayade@obcom.cl)
+'
+' Copyright (c) NX3 INGENIERIA S.A. (Chile) All rights reserved.
+'
+' All  rights to this product are owned by NX3 INGENIERIA S.A. and may only be
+' used under the terms of its associated license document.  You  may  NOT  copy,
+' modify,  sublicense,  or  distribute this source file or portions of it unless
+' previously authorized in writing by NX3 INGENIERIA S.A. In any  event,  this
+' notice and above copyright must always be included verbatim with this file.
+'-------------------------------------------------------------------------------
+%>
+BUSCAR_FOLIOS =
+[
+        Caption = "Carga de Folios DTE";
+		Folios =
+        [
+            Caption = "Carga de Folios Electrónicos";
+            Module = "SAV_AC_FolioTributario.Folios";
+            ShortName = "Folios";
+            IconName = "consultas";
+            Clave = "abc123"; 
+			Empresa = "76821330";
+			Sistema = "1";
+			UsrDTE = "adm_768213305";	
+			IdCont = "1";
+			IdLocal = "1";
+			UrlDTE = "http://10.130.35.4:8080/DteBuscarFoliosSrv/imperial/foliosDte/buscar/";
+        ];
+];
+
+{
+    "clave":"Verdadero",
+    "rutEmpresa":"76821330",
+    "sistema":"1",
+    "usuario":" ",
+    "iD_CONT":"1",
+    "iD_LOCAL":"1",
+    "tipoDTE":"39"
+}

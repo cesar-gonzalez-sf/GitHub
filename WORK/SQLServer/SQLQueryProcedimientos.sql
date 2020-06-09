@@ -1,0 +1,3 @@
+CLIFIEL$DatosClienteHistorialToken
+
+SELECT * FROM CLI_FIEL_DEVICE_HIST

@@ -1,0 +1,25 @@
+/*-------------------- Procedimiento de envio de Imail de Compra --------------------*/
+
+	SP_HELPTEXT zSAV_Mail_CompraAPP
+
+/*---------------------	SP Guardar XML FOlios ---------------------------------*/
+
+	SP_HELPTEXT SAV_AC_XmlFolio 
+
+
+
+
+	------SP
+	SAV_AC_FOLIOTRIBUTARIO_TIPODOC
+	SAV_AC_FoliosTributarios
+	SAV_AC_XmlFolio
+
+	-------ASP
+	SAV_AC\SAV_AC_FOLIOTRIBUTARIO_TIPODOC.asp
+	SAV_AC\SAV_AC_XmlFolio.asp
+
+
+
+
+	Se crea control para carga de folios tributarios, debido al cambio de proveedor gestionado por el Corporativo
+	Se modifica nombre de folios solicitados e insertados

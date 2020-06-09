@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Nuevo proyecto de compra</title>
+
+        <style>
+            /* -------------------------------------    GLOBAL RESETS     ------------------------------------- */
+            /*All the styling goes here*/
+            
+            img {
+                border: none;
+                -ms-interpolation-mode: bicubic;
+                max-width: 100%;
+            }
+            
+            body {
+                background-color: #f6f6f6;
+                font-family: sans-serif;
+                -webkit-font-smoothing: antialiased;
+                font-size: 14px;
+                line-height: 1.4;
+                margin: 0;
+                padding: 0;
+                -ms-text-size-adjust: 100%;
+                -webkit-text-size-adjust: 100%;
+            }
+            
+            table {
+                border-collapse: separate;
+                mso-table-lspace: 0pt;
+                mso-table-rspace: 0pt;
+                width: 100%;
+            }
+            /* -------------------------------------       BODY & CONTAINER        ------------------------------------- */
+            
+            .body {
+                background-color: #f6f6f6;
+                width: 100%;
+            }
+            /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
+            
+            .container {
+                display: block;
+                margin: 0 auto !important;
+                /* makes it centered */
+                padding: 10px;
+            }
+            /* This should also be a block element, so that it will fill 100% of the .container */
+            
+            .content {
+                box-sizing: border-box;
+                display: block;
+                margin: 0 auto;
+                padding: 10px;
+            }
+            /* -------------------------------------  HEADER, FOOTER, MAIN   ------------------------------------- */
+            
+            .main {
+                background: #ffffff;
+                border-radius: 3px;
+                width: 100%;
+            }
+            
+            .wrapper {
+                box-sizing: border-box;
+                padding: 20px;
+            }
+            
+            .footer {
+                clear: both;
+                background: white;
+                width: 100%;
+                padding: 0 20px;
+            }
+            
+            .footer .footer-content {
+                padding: 10px;
+                background: #12507f;
+            }
+            
+            .footer .footer-content .phone-contact {
+                font-family: Roboto;
+                font-size: 11px;
+                font-weight: 500;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: 0.1px;
+                color: white;
+                padding-left: 10px;
+                vertical-align: middle;
+            }
+            
+            .footer .footer-content .phone-contact img {
+                vertical-align: middle;
+                margin: 0 5px;
+            }
+            
+            .footer .footer-content .phone-contact .phone {
+                font-family: Roboto;
+                font-size: 16px;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: 0.2px;
+            }
+
+            .MAIL {
+                border-radius: 3px;
+                height: 20;
+            }
+            /* -------------------------------------     TYPOGRAPHY     ------------------------------------- */
+            h3 {
+                color: #000000;
+                font-family: sans-serif;
+                font-weight: 400;
+                line-height: 1.4;
+                margin: 0;
+                margin-bottom: 10px;
+            }        
+            /* -------------------------------------   OTHER STYLES THAT MIGHT BE USEFUL   ------------------------------------- */
+            .align-right {
+                text-align: right;
+            }
+            
+            .align-left {
+                text-align: left;
+            }
+            
+            .clear {
+                clear: both;
+            }    
+                    
+            /* -------------------------------------   RESPONSIVE AND MOBILE FRIENDLY STYLES  ------------------------------------- */
+            
+            @media only screen and (max-width: 620px) {
+                table[class=body] h1 {
+                    font-size: 28px !important;
+                    margin-bottom: 10px !important;
+                }
+                table[class=body] td,
+                table[class=body] span,
+                table[class=body] a {
+                    font-size: 16px !important;
+                }
+                table[class=body] .wrapper,
+                table[class=body] .article {
+                    padding: 10px !important;
+                }
+                table[class=body] .content {
+                    padding: 0 !important;
+                }
+                table[class=body] .container {
+                    padding: 0 !important;
+                    width: 100% !important;
+                }
+                table[class=body] .main {
+                    border-left-width: 0 !important;
+                    border-radius: 0 !important;
+                    border-right-width: 0 !important;
+                }
+                table[class=body] .btn table {
+                    width: 100% !important;
+                }
+                table[class=body] .btn a {
+                    width: 100% !important;
+                }
+                table[class=body] .img-responsive {
+                    height: auto !important;
+                    max-width: 100% !important;
+                    width: auto !important;
+                }
+            }
+            /* -------------------------------------    PRESERVE THESE STYLES IN THE HEAD    ------------------------------------- */           
+            @media all {
+                .Cliente-title {
+                    color: #003c69;
+                    font-weight: 600;
+                }
+            }
+        </style>
+    </head>
+    <body class="">
+        <table role="test" border="0" cellpadding="0" cellspacing="0" class="body">
+            <td>&nbsp;</td>
+            <td class="contaniner">
+                <div class="content">
+                    <!-- START CENTERED WHITE CONTAINER -->
+                    <table role="test" class="main">
+                        <!-- START MAIN CONTENT AREA -->
+                        <tr>
+                            <td class="wrapper">
+                                <table role="test" border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <img src="http://soa-iis.imperial.cl/pictures/logo.jpg" alt="ImperialImage">
+                                            &nbsp;
+                                            <h3 class="Cliente-title">¡Hola '+ @NombreCli +'!</h3>
+                                            <h3 class="Cliente-title">Tu Usuario es: '+@CODIGO +'</h3>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- END MAIN CONTENT AREA -->
+                        <!-- END CENTERED WHITE CONTAINER -->
+                        <!-- START FOOTER -->
+                        <table role="presentation" class="footer">
+                            <tr>
+                                <td align="center">
+                                    <p style="color: #003c69; font-weight: 600;">Descarga Nuestra APP</p>
+                                    <a style="text-decoration: none;" href="https://play.google.com/store/apps/details?id=cl.imperial.app&hl=es">
+                                        <img style="vertical-align:middle" src="https://ci3.googleusercontent.com/proxy/A4cGq2mesKkJ1HQ1eOL54jbMzpKFUphXcRZQdENwdkN8wardKne12RcJmHPf5xpm6fYGhvbB5K-Z_V8UlhN2XR8DvRGM0e4m1rQSw1TcBC0HXiPaGQs_uP_8yAhCupU5wkH0HlCNQJOx1-BSsw=s0-d-e1-ft#http://main.cdn.wish.com/latest/img/mobile_download_page/banner_google_equal.png?v=62cb513" target="Blank_" width="100" height="30">
+                                    </a>
+                                    <a style="text-decoration: none;" href="https://apps.apple.com/cl/app/imperial-app/id1131355568">
+                                        <img style="vertical-align:middle" src="https://ci4.googleusercontent.com/proxy/zWXDNvTkM_A4CG4us1M_9XGytK0-sLs_b2fKZ9SUXjrsrWhYhR0OSmFEUJgWJva2-fJXlN0SX_bX-gdZNQCQKjc8Ovb3AHXtcufH2mho62DUH-0a7NBhnohX87jJ3iAtKfLmvUU7bRD6bsut=s0-d-e1-ft#http://main.cdn.wish.com/latest/img/mobile_download_page/banner_apple_equal.png?v=61ed113" target="Blank_" width="100" height="30">
+                                    </a>
+                                    <br>
+                                    <br>
+                                    <table role="presentation" class="footer-content" border="0" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td class="phone-contact"> CALL CENTER <img height="20" src="https://soa-desa-iis.imperial.cl/optimizador-app/assets/images/phone.png" alt="phoneImage" /> <span class="phone">(562) 2399 700</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; MAIL <img height="30" src="https://soa-desa-iis.imperial.cl/RsAppImperial/images/gmail.png  "><b class="MAIL">contacto@imperial.cl</b> </td>
+                                            <td class="phone-contact align-right"> SIGUENOS EN
+                                                <a style="text-decoration: none;" href="https://www.facebook.com/ImperialElEspecialista/">
+                                                    <img height="28" src="https://soa-desa-iis.imperial.cl/optimizador-app/assets/images/facebook.png" alt="facebookImage" />    
+                                                </a>
+                                                <a style="text-decoration: none;" href="https://instagram.com/imperial_cl?igshid=13yshbnwpb47w">
+                                                     <img height="28" src="https://soa-desa-iis.imperial.cl/optimizador-app/assets/images/instagram.png" alt="instagramImage" />
+                                                </a>
+                                             </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- END FOOTER -->
+                    </table>
+                </div>
+            </td>
+        </table>
+    </body>
+</html>

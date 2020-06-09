@@ -1,0 +1,77 @@
+--CREATE Procedure dbo.SAV_RegistroConvenio
+-----------------------------------------------------------------------------------------------
+-- Creado por  : Cesar Gonzalez SF        
+-- Fecha       : 26-06-2019        
+-- Objetivo    : Generar convenio con empresas para obener cupones de descuentos para compras
+-----------------------------------------------------------------------------------------------
+
+DECLARE 
+@RUT_PROVEEDOR NVARCHAR(11) = '0000021-3', 
+@FECHA_CONVENIO DATETIME = getdate(),  
+@FECHA_VIGENCIA DATETIME = getdate()+3,
+@ESTADO NVARCHAR(1) = 'A',  --A=ACTIVO; I=INACTIVO
+@MSG_ERROR NVARCHAR(100) = '' --OUTPUT
+
+--AS
+BEGIN 
+	BEGIN TRY
+		DECLARE @RUT NVARCHAR(9)
+		DECLARE @DV  NVARCHAR(1) 
+		DECLARE @COD_CONVENIO INT = 0
+		SET @MSG_ERROR = ''
+
+		--OBTENEMOS EL ULTIMO NUMERO DE CONVENIO INGRESADO PARA SUMARLE 1
+		IF (SELECT COUNT(*) FROM SAV.dbo.EMPRESA_CONVENIO) > 0
+			BEGIN
+			SELECT @COD_CONVENIO = MAX(CODIGO_CONVENIO) FROM SAV.dbo.EMPRESA_CONVENIO
+			SET @COD_CONVENIO = @COD_CONVENIO + 1
+			END
+		ELSE
+			BEGIN
+			SET @COD_CONVENIO = 1
+			END
+
+		IF (SELECT CHARINDEX('-',@RUT_PROVEEDOR)) > 0 
+			BEGIN 
+			SET @RUT = SUBSTRING(@RUT_PROVEEDOR,1,(CHARINDEX('-', @rut_proveedor) - 1))
+			SET @DV  = SUBSTRING(@RUT_PROVEEDOR,CHARINDEX('-',@RUT_PROVEEDOR) + 1, LEN(@RUT_PROVEEDOR))
+			END
+
+		--SET @RUT_PROVEEDOR = @RUT
+
+		SET @rut_proveedor =  RIGHT('0000000000' + UPPER(LTRIM(RTRIM(@RUT))), 7)
+
+		IF EXISTS (SELECT TOP 1 1 FROM SAV.dbo.PRO_MAESTRO WITH(NOLOCK) WHERE RUT_PROVEEDOR = @rut_proveedor AND DV_PROVEEDOR = @DV)
+			BEGIN
+			INSERT SAV.dbo.EMPRESA_CONVENIO(
+			CODIGO_CONVENIO,
+			COD_PROVEEDOR,
+			COD_SUCURSAL,
+			NOMBRE_CONVENIO,
+			ESTADO,
+			FECHA_REGISTRO,
+			FECHA_CONVENIO,
+			FECHA_VIGENCIA,
+			USUARIO_REGISTRO)
+
+			SELECT 
+			cast(@COD_CONVENIO as Varchar(5)),
+			COD_PROVEEDOR,
+			COD_SUCURSAL,
+			NOMBRE,
+			@ESTADO,
+			GETDATE(),
+			@FECHA_CONVENIO,
+			@FECHA_VIGENCIA,
+			'SYSTEM'
+			FROM SAV.dbo.PRO_MAESTRO
+			WHERE RUT_PROVEEDOR = @RUT_PROVEEDOR 
+			AND DV_PROVEEDOR = @DV
+			END
+		ELSE
+			BEGIN
+			--RETURN 0
+			SELECT 0
+			--SET @MSG_ERROR = 'NO EXISTE EL PROVEEDOR EN LA PRO_MAESTRO'
+			--PRINT 'NO EXISTE EL PROVEEDOR EN LA PRO_MAESTRO'
+			END

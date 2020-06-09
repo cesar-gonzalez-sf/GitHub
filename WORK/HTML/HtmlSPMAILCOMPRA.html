@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+    <style>
+        p.solid {
+            border-style: solid;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <IMG src="http://soa-iis.imperial.cl/pictures/logo.jpg" width="100%" HEIGHT=120>
+    <br>
+    <h2 align="center">Estamos validando tu compra<h2>
+                          <h2 align="center">N° ' + @OrdenPedido + ' </h2>
+    <h4>' + @NombreCli +':</h4>
+    <b>Te informamos que tu pedido se encuentra en proceso de validación.</b>
+    <br>
+    <br>Pasos a seguir:
+    <p style="margin: 5 50" align="justify">
+        <b>1. Validaremos tu pedido.</b>
+        <br>2. Recibirás un mail con tu boleta o factura y el detalle de la compra.
+        <br>3. Confirmaremos por mail cuando tu compra este lista para la '+ @FLETE +'.
+    </p>
+    <br>
+    <p style="margin: 5 50" align="justify">Para hacer seguimiento a tu compra, solo debes hacer clic en el "<a href="https://www.imperial.cl/tracking" target="Blank_"><font color = "blue"><u>Seguimiento de Pedidos</u></font></a>" digita el numero de documento (Boleta o Factura).
+    </p>
+    <p style="margin: 5 50" align="justify">
+        <br>Si tienes alguna duda respecto a las condiciones de despacho, por favor revisa los "
+        <a href="https://www.imperial.cl/t%C3%A9rminos-y-condiciones-informaci%C3%B3n-general/product/terminos_y_condiciones" target="Blank_">
+            <font color="blue"><u>Términos y condiciones</u></font></a>". De existir algún inconveniente o retraso en la validación de datos o emisión de la boleta, te informaremos a través de un email.
+    </p>
+    <br>
+    <div style="background-color: #003865; color: White; border-radius: 5px; padding: 5px">
+        <span style="float:right">SIGUENOS EN <img height="18" src="https://soa-desa-iis.imperial.cl/optimizador-app/assets/images/facebook.png" alt="facebookImage"><img height="18" src="https://soa-desa-iis.imperial.cl/optimizador-app/assets/images/instagram.png" alt="instagramImage" /></span> CALL CENTER <img height="18" src="https://soa-desa-iis.imperial.cl/optimizador-app/assets/images/phone.png" alt="phoneImage"> (562)2399700
+    </div>
+</body>
+
+</html>

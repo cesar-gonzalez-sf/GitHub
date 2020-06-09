@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>iframer</title>
+    <iframe style='display:none' id='frame' width='1350' height='1000' frameborder='0' onload="resizeIframe(this.id)"></iframe>
+    <script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
+
+    <script type="text/javascript">
+        function loadPage() {
+            var frame = $('#frame');
+            var url = 'https://optionline-dev-files.s3.amazonaws.com/pla5cfe5e289bb5a.pdf';
+
+
+            frame.attr('src', url).show();
+        }
+    </script>
+    <style type="text/css">
+        .button {
+            border-radius: 12px;
+            background-color: #003c69;
+            color: #ffffff;
+            }
+    </style>
+</head>
+
+<body>
+    <button class="button" onclick='loadPage()'>DESCARGAR PDF</button>
+</body>
+
+</html>
